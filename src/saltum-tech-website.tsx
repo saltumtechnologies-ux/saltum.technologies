@@ -251,12 +251,12 @@ export default function SaltumWebsite() {
   const [generatedLink, setGeneratedLink] = useState('');
   const [isAccepted, setIsAccepted] = useState(false);
   const [noButtonPos, setNoButtonPos] = useState({ x: 0, y: 0 });
-  const [targetName, setTargetName] = useState(null);
+const [targetName, setTargetName] = useState<string | null>(null);
 
   useEffect(() => {
     // Check URL for partner name
     const params = new URLSearchParams(window.location.search);
-    const name = params.get('name');
+    const name = params.get('name') 
     if (name) setTargetName(name);
 
     const handleScroll = () => {
