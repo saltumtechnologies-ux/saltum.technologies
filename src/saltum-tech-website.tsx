@@ -238,7 +238,7 @@
 
 
 import { useState, useEffect } from 'react';
-import { Brain, Cpu, Smartphone, ArrowRight, Zap, Globe, Users, TrendingUp, Menu, X, Heart, Copy } from 'lucide-react';
+import { Brain, Cpu, Smartphone, ArrowRight, Zap, Globe, Users, TrendingUp, Menu, X, Heart, Copy, Quote } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export default function SaltumWebsite() {
@@ -313,6 +313,27 @@ const [targetName, setTargetName] = useState<string | null>(null);
     { icon: <Users className="w-8 h-8" />, title: "Freelancers", desc: "Scale your operations effortlessly" },
     { icon: <TrendingUp className="w-8 h-8" />, title: "Startups", desc: "Build on solid foundations" },
     { icon: <Globe className="w-8 h-8" />, title: "Business Owners", desc: "Transform your enterprise" }
+  ];
+
+  const testimonials = [
+    {
+      quote: "Saltum transformed our legacy ERP into an intelligent system. The AI integration has cut our operational costs by 40% and decision-making is now data-driven across the board.",
+      name: "Sarah Chen",
+      role: "CTO",
+      company: "Nexus Industries"
+    },
+    {
+      quote: "We needed a partner who could handle both migration and innovation. Saltum delivered a stable, scalable platform that our team actually enjoys using. World-class execution.",
+      name: "Marcus Webb",
+      role: "Operations Director",
+      company: "Flow Logistics"
+    },
+    {
+      quote: "From day one, Saltum understood our vision. Their AI-powered solutions don't just automate—they adapt. Our business has never been more agile or future-ready.",
+      name: "Priya Sharma",
+      role: "Founder & CEO",
+      company: "ScaleUp Tech"
+    }
   ];
 
   return (
@@ -535,6 +556,7 @@ const [targetName, setTargetName] = useState<string | null>(null);
             <div className="hidden md:flex space-x-8 items-center">
               <a href="#services" className="hover:text-cyan-400 transition-colors">Services</a>
               <a href="#about" className="hover:text-cyan-400 transition-colors">About</a>
+              <a href="#testimonials" className="hover:text-cyan-400 transition-colors">Testimonials</a>
               <a href="#contact" className="hover:text-cyan-400 transition-colors">Contact</a>
               <button 
                 onClick={() => setShowGenerator(true)}
@@ -559,6 +581,7 @@ const [targetName, setTargetName] = useState<string | null>(null);
             <div className="px-4 py-4 space-y-3">
               <a href="#services" className="block hover:text-cyan-400 transition-colors">Services</a>
               <a href="#about" className="block hover:text-cyan-400 transition-colors">About</a>
+              <a href="#testimonials" className="block hover:text-cyan-400 transition-colors">Testimonials</a>
               <a href="#contact" className="block hover:text-cyan-400 transition-colors">Contact</a>
               <button 
                 onClick={() => {
@@ -706,6 +729,32 @@ const [targetName, setTargetName] = useState<string | null>(null);
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 px-4 bg-slate-900/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">What Our Clients Say</h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">Trusted by businesses worldwide for intelligent, reliable solutions</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, idx) => (
+              <div
+                key={idx}
+                className="group bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
+              >
+                <Quote className="w-10 h-10 text-cyan-500/60 mb-4" />
+                <p className="text-slate-300 leading-relaxed mb-6 flex-1 italic">&ldquo;{testimonial.quote}&rdquo;</p>
+                <div className="pt-4 border-t border-slate-700">
+                  <div className="font-semibold text-white">{testimonial.name}</div>
+                  <div className="text-sm text-cyan-400">{testimonial.role}, {testimonial.company}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
